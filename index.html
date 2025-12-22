@@ -5,253 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Road Capture Application</title>
   <meta name="description" content="Download the latest Android APK." />
-  <style>
-    :root{
-      --bg1:#0b1020;
-      --bg2:#0f1a3a;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.06);
-      --stroke: rgba(255,255,255,.14);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --accent:#7c5cff;
-      --accent2:#22d3ee;
-      --shadow: 0 25px 60px rgba(0,0,0,.45);
-    }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 20%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(1000px 500px at 80% 15%, rgba(34,211,238,.25), transparent 55%),
-        radial-gradient(900px 500px at 60% 85%, rgba(124,92,255,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 28px 16px;
-    }
-
-    .wrap{ width:min(980px, 100%); }
-
-    /* Top bar */
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom: 16px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
-      color: var(--text);
-    }
-    .logo{
-      width:44px;height:44px;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
-        linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.18);
-    }
-    .brand strong{ font-size: 15px; letter-spacing:.2px; }
-    .brand span{ display:block; font-size: 12px; color: var(--muted); margin-top:2px; }
-
-    .pill{
-      font-size:12px;
-      color: var(--muted);
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      padding: 8px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(8px);
-    }
-
-    /* Main card */
-    .card{
-      border:1px solid var(--stroke);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background: radial-gradient(500px 240px at 20% 0%, rgba(124,92,255,.22), transparent 60%),
-                  radial-gradient(460px 220px at 90% 10%, rgba(34,211,238,.18), transparent 55%);
-      pointer-events:none;
-      filter: blur(2px);
-    }
-    .content{
-      position:relative;
-      padding: 34px 26px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
-    }
-
-    @media (max-width: 820px){
-      .content{ grid-template-columns: 1fr; padding: 26px 18px; }
-      .top{ margin-bottom: 12px; }
-    }
-
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 3.6vw, 44px);
-      letter-spacing:-.8px;
-      line-height:1.05;
-    }
-    p{
-      margin: 0 0 18px;
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 15px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(34,211,238,.75));
-      color: #061021;
-      font-weight: 700;
-      text-decoration:none;
-      box-shadow: 0 16px 40px rgba(0,0,0,.35);
-      transition: transform .12s ease, filter .12s ease;
-      width: 100%;
-      max-width: 320px;
-    }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); }
-    .btn:active{ transform: translateY(0px) scale(.99); }
-    .btn svg{ width:18px; height:18px; }
-
-    .subactions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 12px;
-    }
-    .logo-img{
-  width:200px;
-  height:44px;
-  border-radius: 12px;
-  object-fit: contain;
-  background: rgb(248, 247, 247);
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 12px 30px rgba(0,0,0,.35);
-}
-
-    .ghost{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      text-decoration:none;
-      font-size: 13px;
-      transition: transform .12s ease, background .12s ease;
-    }
-    .ghost:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
-
-    /* Right panel */
-    .panel{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      border-radius: 18px;
-      padding: 18px;
-      backdrop-filter: blur(8px);
-    }
-    .panel h2{
-      margin:0 0 12px;
-      font-size: 14px;
-      letter-spacing:.2px;
-      color: rgba(255,255,255,.86);
-    }
-    .list{
-      display:grid;
-      gap:10px;
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-    .item{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding: 10px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.12);
-    }
-    .dot{
-      width:10px;height:10px;
-      border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      margin-top:4px;
-      flex: 0 0 auto;
-      box-shadow: 0 10px 20px rgba(0,0,0,.35);
-    }
-    .item b{
-      display:block;
-      font-size: 13px;
-      margin-bottom: 2px;
-    }
-    .item span{
-      display:block;
-      color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.35;
-    }
-
-    /* Footer */
-    .footer{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px 18px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.55);
-      font-size: 12px;
-      position:relative;
-    }
-    .footer a{ color: rgba(255,255,255,.75); text-decoration:none; }
-    .footer a:hover{ text-decoration:underline; }
-
-    /* Small helper "toast" */
-    .hint{
-      margin-top: 14px;
-      font-size: 12.5px;
-      color: rgba(255,255,255,.62);
-    }
-    code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 8px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.82);
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
   <div class="wrap">
     <div class="top">
@@ -262,7 +19,6 @@
           <span>Android APK download</span>
         </div>
       </a>
-
     </div>
 
     <main class="card" role="main">
@@ -274,7 +30,6 @@
             from your browser or file manager (normal security behavior).
           </p>
 
-          <!-- IMPORTANT: rename this to your exact APK filename -->
           <a class="btn" href="./app-release.apk" download>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 3v10m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -282,7 +37,6 @@
             </svg>
             Download APK
           </a>
-          
         </section>
 
         <aside class="panel">
@@ -319,10 +73,8 @@
   </div>
 
   <script>
-    // Set year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Copy the direct APK URL (works after you host it)
     function copyLink(e){
       e.preventDefault();
       const url = new URL("./app-release.apk", window.location.href).toString();
