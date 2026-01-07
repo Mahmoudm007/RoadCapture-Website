@@ -26,8 +26,8 @@
         <section>
           <h1>Get the Android app</h1>
           <p>
-            One tap, download the APK to your device. After downloading, Android may ask you to allow installation
-            from your browser or file manager (normal security behavior).
+            One tap, download the APK to the device. After downloading, Android may ask you to allow installation
+            from your browser or file manager.
           </p>
 
           <a class="btn" href="./app-release.apk" download>
@@ -40,31 +40,54 @@
         </section>
 
         <aside class="panel">
-          <h2>Quick notes</h2>
+          <h2>Contact Us</h2>
           <ul class="list">
             <li class="item">
               <span class="dot"></span>
               <div>
-                <b>Browser warning</b>
-                <span>Chrome may warn about APKs. If you trust the source, proceed.</span>
+                <b>Michael Urbiztondo</b>
+                <span>urbizton@ualberta.ca</span>
               </div>
             </li>
             <li class="item">
               <span class="dot"></span>
               <div>
-                <b>Install permissions</b>
-                <span>You may need to enable “Install unknown apps” for your browser or file manager.</span>
+                <b>Mahmoud M. Abdelaty</b>
+                <span>mmabdela@ualberta.ca</span>
               </div>
             </li>
           </ul>
-
-          <div id="install" style="margin-top:14px"></div>
-          <h2 style="margin-top:16px">Install steps</h2>
-          <p style="margin:0; color: var(--muted); font-size:12.5px; line-height:1.45;">
-            1) Download APK → 2) Tap the file → 3) Allow installation if prompted → 4) Install.
-          </p>
         </aside>
       </div>
+
+            <!-- PDF Section (below the existing container) -->
+      <section class="pdf-section" aria-labelledby="pdf-title">
+        <div class="pdf-header">
+          <div>
+            <h2 id="pdf-title">User Guide (PDF)</h2>
+            <p class="pdf-subtitle">
+              Preview the guide directly here, or download it to your device.
+            </p>
+          </div>
+
+          <div class="pdf-actions">
+            <a class="pdf-btn" href="./RoadCapture-Manual.pdf" target="_blank" rel="noopener">
+              Open in new tab
+            </a>
+            <a class="pdf-btn primary" href="./RoadCapture-Manual.pdf" download>
+              Download PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="pdf-viewer">
+          <iframe
+            src="./RoadCapture-Manual.pdf"
+            title="Road Capture User Guide PDF"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
 
       <div class="footer">
         <div>© <span id="year"></span> GeoTrans Lab</div>
