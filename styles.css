@@ -316,6 +316,11 @@ code{
   justify-content:flex-end;
 }
 
+.legacy-apk-actions{
+  margin-top: 12px;
+  justify-content: flex-start;
+}
+
 .pdf-btn{
   display:inline-flex;
   align-items:center;

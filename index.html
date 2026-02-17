@@ -30,12 +30,12 @@
             from your browser or file manager.
           </p>
 
-          <a class="btn" href="./app-release.apk" download>
+          <a class="btn" href="./app-release%20(2).apk" download>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 3v10m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            Download APK
+            Download Latest APK (v2)
           </a>
         </section>
 
@@ -89,6 +89,12 @@
             height="600px">
           </iframe>
         </div>
+
+        <div class="pdf-actions legacy-apk-actions">
+          <a class="pdf-btn" href="./app-release.apk" download>
+            Download Previous APK
+          </a>
+        </div>
       </section>
 
       <div class="footer">
@@ -102,7 +108,7 @@
 
     function copyLink(e){
       e.preventDefault();
-      const url = new URL("./app-release.apk", window.location.href).toString();
+      const url = new URL("./app-release%20(2).apk", window.location.href).toString();
       navigator.clipboard.writeText(url).then(() => {
         alert("Download link copied!");
       }).catch(() => {
